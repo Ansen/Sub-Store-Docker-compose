@@ -26,10 +26,7 @@ RUN apk add --no-cache supervisor nginx \
     && cp -rf files/entrypoint.sh /entrypoint.sh \
     && chmod +x /entrypoint.sh \
     && wget -q  https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store.bundle.js -O sub-store.bundle.js \
-    && wget -q https://github.com/sub-store-org/Sub-Store-Front-End/releases/latest/download/dist.zip -O dist.zip \
-    && unzip -oq dist.zip \
-    && mv dist html \
     && mkdir /db \
-    && rm -rf dist.zip files
+    && rm -rf files
 
 ENTRYPOINT ["/bin/sh","/entrypoint.sh" ]
