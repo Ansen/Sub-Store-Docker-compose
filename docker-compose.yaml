@@ -8,8 +8,9 @@ services:
         URL: https://sub.example.com/xxxxxxxx
     container_name: sub-store
     hostname: sub-store
-    environment:
-      # - SUB_STORE_BACKEND_CRON=0 0 * * *
+    # environment:
+    #   # 一般不需要动
+    #   - SUB_STORE_BACKEND_SYNC_CRON=55 23 * * *
     ports:
       - 39080:80
     volumes:
