@@ -1,0 +1,17 @@
+---
+services:
+  sub-store:
+    build: 
+      context: sub-store
+      args:
+        # 改成你自己的
+        URL: https://sub.example.com/xxxxxxxx
+    container_name: sub-store
+    hostname: sub-store
+    environment:
+      # - SUB_STORE_BACKEND_CRON=0 0 * * *
+    ports:
+      - 39080:80
+    volumes:
+      - ./db:/db
+    restart: unless-stopped

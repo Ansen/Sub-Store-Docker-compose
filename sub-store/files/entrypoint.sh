@@ -1,0 +1,22 @@
+#!/bin/sh
+
+. /etc/profile
+
+# 检查并设置环境变量
+: "${SUB_STORE_BACKEND_CRON:=0 0 * * *}"
+export SUB_STORE_BACKEND_CRON
+
+# 下面不建议修改，如果你不知道你在做什么的话
+export SUB_STORE_DATA_BASE_PATH=/db
+export SUB_STORE_BACKEND_API_HOST='127.0.0.1'
+export SUB_STORE_BACKEND_API_PORT=3000
+
+
+# 输出环境变量用以确认
+echo "SUB_STORE_BACKEND_CRON=${SUB_STORE_BACKEND_CRON}"
+echo "SUB_STORE_DATA_BASE_PATH=${SUB_STORE_DATA_BASE_PATH}"
+echo "SUB_STORE_BACKEND_API_HOST=${SUB_STORE_BACKEND_API_HOST}"
+echo "SUB_STORE_BACKEND_API_PORT=${SUB_STORE_BACKEND_API_PORT}"
+
+
+supervisord -c /etc/supervisord.conf
