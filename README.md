@@ -47,6 +47,8 @@ curl -L "https://github.com/docker/compose/releases/latest/download/docker-compo
 
 ## HTTPS 访问(强烈建议)
 
+> 如果是部署在内网环境，可以不管这里
+
 docker 启动后，默认没有配置SSL， 需要自行配置。
 
 建议使用 cloudflare 加速
