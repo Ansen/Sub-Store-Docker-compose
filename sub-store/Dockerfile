@@ -20,9 +20,8 @@ WORKDIR /app
 COPY --chown=root:root files /app/files
 COPY --from=frontend  --chown=root:root /app/frontend/dist /app/html
 
-RUN apk add --no-cache supervisor nginx \
+RUN apk add --no-cache supervisor \
     && cp -rf files/supervisord.conf /etc/supervisord.conf \
-    && cp -rf files/default.conf /etc/nginx/http.d/default.conf \
     && cp -rf files/entrypoint.sh /entrypoint.sh \
     && chmod +x /entrypoint.sh \
     && wget -q  https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store.bundle.js -O sub-store.bundle.js \

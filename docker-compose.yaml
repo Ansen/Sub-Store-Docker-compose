@@ -14,8 +14,14 @@ services:
       # 必须以 / 开头，不能带引号,不要用特殊符号, 防止出现其他问题
       # 配置后，后端 API 访问地址为：https://sub.example.com/xxxxx
       - SUB_STORE_FRONTEND_BACKEND_PATH=/xxxxx
+      # 无特殊情况不用动这玩意
+      # - SUB_STORE_BACKEND_SYNC_CRON=55 23 * * *
     ports:
-      - 39080:80
+      # 如果要修改端口，建议只修改冒号前面的，后面的别动
+      # 前端端口
+      - 39080:3001
+      # 后端程序端口
+      # - 39081:3000
     volumes:
       - ./db:/db
     restart: unless-stopped
