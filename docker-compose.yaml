@@ -4,13 +4,16 @@ services:
     build: 
       context: sub-store
       args:
-        # 改成你自己的
-        URL: https://sub.example.com/xxxxxxxx
+        # 前端域名改成你自己的
+        # 需要带协议头
+        URL: https://sub.example.com
     container_name: sub-store
     hostname: sub-store
-    # environment:
-    #   # 一般不需要动
-    #   - SUB_STORE_BACKEND_SYNC_CRON=55 23 * * *
+    environment:
+      # 后端 API 前缀，建议自行配置，首次启动和每次更新随机生成
+      # 必须以 / 开头，不能带引号,不要用特殊符号, 防止出现其他问题
+      # 配置后，后端 API 访问地址为：https://sub.example.com/xxxxx
+      - SUB_STORE_FRONTEND_BACKEND_PATH=/xxxxx
     ports:
       - 39080:80
     volumes:
