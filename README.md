@@ -25,3 +25,7 @@ server {
 
 }
 ```
+
+# 感谢
+
+- [Sub-Store](https://github.com/sub-store-org/Sub-Store)
